@@ -1,6 +1,7 @@
 package com.est.seminario.services;
 
-import com.est.seminario.models.Entities.PersonEntity;
+import com.est.seminario.mappers.PersonMapper;
+import com.est.seminario.models.entities.PersonEntity;
 import com.est.seminario.models.request.PersonDTO;
 import com.est.seminario.models.response.PersonInfoOutput;
 import com.est.seminario.repositories.PersonRepository;
@@ -22,13 +23,7 @@ public class DefaultPersonService implements PersonService {
     public PersonInfoOutput getPersonById(String id) {
         try {
             PersonEntity p = personRepository.getById(Integer.parseInt(id));
-            return PersonInfoOutput.builder()
-                    .name(p.getName())
-                    .id(p.getId())
-                    .email(p.getEmail())
-                    .build();
-
-
+            return PersonMapper.mapPersonById(p);
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }
@@ -38,15 +33,12 @@ public class DefaultPersonService implements PersonService {
     @Override
     public PersonInfoOutput createPerson(PersonDTO personInput) {
         try {
-            PersonEntity p = PersonEntity.builder()
-                    .name(personInput.getNome())
-                    .email(personInput.getEmail())
-                    .build();
-
+            PersonEntity p = PersonMapper.createPersonInput(personInput);
             personRepository.save(p);
+
             List<PersonEntity> allRecords = personRepository.findAll();
             PersonEntity lastElementInserted =  allRecords.stream().skip(allRecords.size() - 1).findFirst().get();
-            return PersonInfoOutput.builder().id(lastElementInserted.getId()).build();
+            return PersonMapper.mapPersonById(lastElementInserted);
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }

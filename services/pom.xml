@@ -26,5 +26,9 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>repositories</artifactId>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>mappers</artifactId>
+        </dependency>
     </dependencies>
 </project>
