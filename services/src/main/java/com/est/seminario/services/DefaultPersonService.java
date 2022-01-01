@@ -3,6 +3,7 @@ package com.est.seminario.services;
 import com.est.seminario.mappers.PersonMapper;
 import com.est.seminario.models.entities.PersonEntity;
 import com.est.seminario.models.request.PersonDTO;
+import com.est.seminario.models.response.PeopleOutput;
 import com.est.seminario.models.response.PersonInfoOutput;
 import com.est.seminario.repositories.PersonRepository;
 import lombok.SneakyThrows;
@@ -43,4 +44,5 @@ public class DefaultPersonService implements PersonService {
             throw new ValidationException(e.getMessage());
         }
     }
+
 }

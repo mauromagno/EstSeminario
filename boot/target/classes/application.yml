@@ -13,6 +13,9 @@ spring:
     url: "jdbc:mysql://localhost:3306/seminario"
     driverClassName: "com.mysql.cj.jdbc.Driver"
 
+exemplo:
+  variavel: Qualquer tipo de variavel
+
 swagger:
   enabled: true
   title: est.seminario

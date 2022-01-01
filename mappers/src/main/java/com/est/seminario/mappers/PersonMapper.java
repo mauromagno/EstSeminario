@@ -2,9 +2,13 @@ package com.est.seminario.mappers;
 
 import com.est.seminario.models.entities.PersonEntity;
 import com.est.seminario.models.request.PersonDTO;
+import com.est.seminario.models.response.PeopleOutput;
 import com.est.seminario.models.response.PersonInfoOutput;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PersonMapper {
@@ -16,6 +20,8 @@ public class PersonMapper {
                 .email(p.getEmail())
                 .build();
     }
+
+
 
     public static PersonEntity createPersonInput(PersonDTO p) {
         return PersonEntity.builder()
