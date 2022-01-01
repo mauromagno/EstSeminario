@@ -1,0 +1,12 @@
+exception.handler.common-api: false
+
+spring:
+  profiles:
+    include:
+      - swagger
+
+
+swagger:
+  enabled: true
+  title: est.seminario
+  description: Change description in application config

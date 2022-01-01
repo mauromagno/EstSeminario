@@ -1,0 +1,23 @@
+exception.handler.common-api: false
+
+logging.level:
+  org.springframework: ERROR
+
+spring:
+  profiles:
+    include:
+      - swagger
+  datasource:
+    username: "root"
+    password: "" ##Enter your root password
+    url: "jdbc:mysql://localhost:3306/seminario"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+
+exemplo:
+  variavel: Qualquer tipo de variavel
+
+swagger:
+  enabled: true
+  title: est.seminario
+  description: Change description in application config
+
